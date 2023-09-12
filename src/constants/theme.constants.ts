@@ -1,26 +1,10 @@
 import { createTheme } from "@mui/material/styles";
 
-// Syntax for Extending PalleteColorOption
-// declare module "@mui/material/styles/createPalette" {
-//   interface SimplePaletteColorOptions {
-//     magic?: string;
-//   }
-// }
-
-// MAPPING OF DESIGN PALLETE AND THEME NAMING
-// -2 : light
-// -1 : 50
-// base : main
-// 1: 100
-// 2 : dark
-
-
 declare module "@mui/material/styles" {
   interface PaletteColor {
     50?: string;
     100?: string;
   }
-
 }
 
 declare module "@mui/material/styles" {
@@ -52,11 +36,11 @@ declare module "@mui/material/Typography" {
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#00AB55",
-      light: "#C8FACD",
-      dark: "#005249",
-      50: "#5BE584",
-      100: "#007B55",
+      main: "#84754D",
+      light: "#B5AC94",
+      dark: "#423A26",
+      50: "#B5AC94",
+      100: "#84754D",
     },
     secondary: {
       main: "#3366FF",
