@@ -35,7 +35,7 @@ const AppRouter = () => {
         <Route path="projects/work-order" element={<div>work-order</div>} />
         <Route path="projects/receipts" element={<div>receipts</div>} />
       </Route>
-      <Route index element={< LoginPage/>} />
+      <Route path="/login" element={< LoginPage/>} />
     </Routes>
   );
 };
