@@ -2,7 +2,7 @@ import { PageWrapper } from "../../styles/page-wrapper";
 import { PageTitle } from "../../styles/page-title";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import EnhancedTable from "../../components/table";
+import EnhancedTable from "../../components/inventoryList";
 const InventoryPage = () => {
   return (
     <PageWrapper>

@@ -23,7 +23,7 @@ const AppRouter = () => {
         <Route index element={<TestPage />} />
         <Route path="inventory" element={<InventoryPage />} />
         <Route path="inventory/new" element={<InventoryPage />} />
-        <Route path="inventory/edit" element={<InventoryPage />} />
+        {/* <Route path="inventory/id/edit" element={<InventoryPage />} /> */}
         <Route path="projects" element={<Navigate to="project" />} />
         <Route path="projects/project" element={<div>projects</div>} />
         <Route path="projects/work-order" element={<div>work-order</div>} />
