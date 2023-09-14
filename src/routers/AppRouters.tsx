@@ -6,6 +6,7 @@ import { ProtectedRouteProps } from "../types/route.type";
 import InventoryPage from "../pages/inventory";
 import AddInventory from "../components/add-inventory";
 import EditInventory from "../components/edit-inventory";
+import LoginPage from '../layouts/authentication/Sign_in';
 
 const AppRouter = () => {
   const defaultProtectedRouteProps: Omit<ProtectedRouteProps, "outlet"> = {
@@ -34,6 +35,7 @@ const AppRouter = () => {
         <Route path="projects/work-order" element={<div>work-order</div>} />
         <Route path="projects/receipts" element={<div>receipts</div>} />
       </Route>
+      <Route index element={< LoginPage/>} />
     </Routes>
   );
 };
