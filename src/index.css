@@ -3,4 +3,13 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Public Sans", sans-serif;
+  /* background-color: #fffdf9; */
 }
+button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.css-o7ik0b-MuiButtonBase-root-MuiButton-root {
+  border-radius: 0px !important;
+  padding-inline: 20px !important;
+  font-weight: 700;
+  /* text-transform: capitalize !important; */
+  word-spacing: 2px;
+}
+

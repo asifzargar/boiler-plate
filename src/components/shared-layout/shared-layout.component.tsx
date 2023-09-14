@@ -15,12 +15,13 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import NavigationArrow from "../../assets/NavigationArrow.svg";
 import NavigationOpenIcon from "../../assets/NavigationOpenIcon.svg";
+import LibraryOpenIconSelected from "../../assets/LibraryOpenIconSelected.svg";
 
 import {
   DrawerHeader,
   MobileBox,
-  TabletBox,
-  LogoText,
+  // TabletBox,
+  // LogoText,
   StyledListItem,
   ListItemText,
   BurgerButton,
@@ -31,8 +32,9 @@ import {
 } from "./shared-layout.style";
 import Logo from "../../assets/logo.png";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import path from "path";
+// import path from "path";
 import { theme } from "../../constants/theme.constants";
+import SearchAppBar from "../header";
 const drawerWidth = 270;
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -67,11 +69,13 @@ const Drawer = styled(MuiDrawer, {
   boxSizing: "border-box",
   overflowX: "hidden",
   borderRight: "none",
+
   ...(open && {
     ...openedMixin(theme),
     "& .MuiPaper-root": {
       ...openedMixin(theme),
       borderRight: "none",
+      background: "transparent",
     },
   }),
   ...(!open && {
@@ -79,6 +83,7 @@ const Drawer = styled(MuiDrawer, {
     "& .MuiPaper-root": {
       ...closedMixin(theme),
       borderRight: "none",
+      background: "transparent",
     },
   }),
 }));
@@ -86,6 +91,7 @@ const Drawer = styled(MuiDrawer, {
 export default function MiniDrawer() {
   const [open, setOpen] = React.useState(true);
   const [sublistItem, setSublistItem] = React.useState<string>("");
+  const location = useLocation();
   const paths = [
     {
       path: "",
@@ -125,25 +131,37 @@ export default function MiniDrawer() {
 
   let navigate = useNavigate();
 
+  React.useEffect(() => {
+    if (location.pathname.split("/")[1] === "projects") {
+      setSublistItem("Projects");
+    }
+  }, [location]);
+
   return (
-    <Box
-      sx={{
-        position: "fixed",
-        top: 0,
-        width: "100%",
-        zIndex: (theme) => theme.zIndex.drawer + 1,
-      }}
-      style={open ? { marginLeft: "270px" } : { marginLeft: "72px" }}
-    >
-      <Box sx={{ display: "flex", paddingTop: "3rem" }}>
+    <>
+      <Box
+        sx={{
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+          position: "sticky",
+          top: "0px",
+        }}
+        style={open ? { marginLeft: "270px" } : { marginLeft: "95px" }}
+      >
+        <SearchAppBar />
+      </Box>
+      <Box sx={{ display: "flex" }}>
         <Drawer variant="permanent" open={open}>
           <DrawerHeader>
-            <img src={Logo} alt="logo" width={"80%"} height={50} />
+            {open ? (
+              <img src={Logo} alt="logo" width={"80%"} height={50} />
+            ) : (
+              ""
+            )}
           </DrawerHeader>
           <MobileBox
             sx={
               !open
-                ? { position: "fixed", top: "70px", left: "10px" }
+                ? { position: "fixed", top: "25px", left: "50px" }
                 : { position: "fixed", top: "25px", left: "210px" }
             }
           >
@@ -167,13 +185,13 @@ export default function MiniDrawer() {
             {paths.map(({ text, path, sublist, subItems }, index) => {
               let pathToMatch = location.pathname.split("/")[1];
               return (
-                <>
+                <Box key={index}>
                   <StyledListItem
                     key={text}
                     className={
-                      path === pathToMatch
-                        ? "active"
-                        : text === sublistItem
+                      path === "projects" || pathToMatch === "projects"
+                        ? ""
+                        : path === pathToMatch
                         ? "active"
                         : ""
                     }
@@ -181,23 +199,23 @@ export default function MiniDrawer() {
                       display: "block",
                       marginBottom:
                         open || (!open && path == "projects") ? null : "1rem",
-                      backgroundColor:
-                        path == "projects" ? "#fff !important" : null,
                     }}
                     onClick={() => {
-                      // if (path !== "projects") {
-                      navigate(path);
-                      // }
-                      if (sublistItem === "") {
-                        setSublistItem(text);
-                      } else {
+                      if (path !== "projects") {
+                        navigate(path);
                         setSublistItem("");
+                      } else {
+                        if (sublistItem === "") {
+                          setSublistItem(text);
+                        } else {
+                          setSublistItem("");
+                        }
                       }
                     }}
                   >
                     <ListItemButton
                       sx={{
-                        minHeight: 48,
+                        minHeight: 50,
                         justifyContent: open ? "initial" : "center",
                         px: 2.5,
                       }}
@@ -205,84 +223,98 @@ export default function MiniDrawer() {
                       <ListItemIcon
                         sx={{
                           minWidth: 0,
-                          mr: open ? 3 : 1,
+                          mr: open ? 3 : 0.5,
                           display: "flex",
                           flexDirection: "column",
                           justifyContent: "center",
                           alignItems: "center",
                         }}
                       >
-                        {!open && path == "library" ? (
+                        {!open && path === "projects" ? (
                           <span
                             style={{ display: "flex", marginLeft: "1.7rem" }}
                           >
-                            {path != pathToMatch ? (
+                            {path != pathToMatch || path === "projects" ? (
                               <img
                                 src={icons[index]}
                                 alt="icon"
-                                width={24}
-                                height={24}
+                                width={20}
+                                height={20}
                               />
                             ) : (
                               <img
                                 src={iconsClicked[index]}
                                 alt="icon"
-                                width={24}
-                                height={24}
+                                width={20}
+                                height={20}
                               />
                             )}
-                            {/* {path == pathToMatch ? (
-                            <img
-                              src={LibraryOpenIconSelected}
-                              height={16}
-                              width={16}
-                              style={{ marginLeft: "0.6rem" }}
-                            />
-                          ) : (
-                            <img
-                              src={NavigationOpenIcon}
-                              height={16}
-                              width={16}
-                              style={{ marginLeft: "0.6rem" }}
-                            />
-                          )} */}
+                            {path == pathToMatch ? (
+                              <img
+                                src={LibraryOpenIconSelected}
+                                height={16}
+                                width={16}
+                                style={{ marginLeft: "0.6rem" }}
+                              />
+                            ) : (
+                              <img
+                                src={NavigationOpenIcon}
+                                height={16}
+                                width={16}
+                                style={{ marginLeft: "0.6rem" }}
+                              />
+                            )}
                           </span>
                         ) : (
                           <>
-                            {path != pathToMatch ? (
+                            {path != pathToMatch || path === "projects" ? (
                               <img
                                 src={icons[index]}
                                 alt="icon"
-                                width={24}
-                                height={24}
+                                width={20}
+                                height={20}
                               />
                             ) : (
                               <img
                                 src={iconsClicked[index]}
                                 alt="icon"
-                                width={24}
-                                height={24}
+                                width={20}
+                                height={20}
                               />
                             )}
                           </>
                         )}
+                        {!open ? (
+                          <StyledIconsLabels
+                            style={
+                              path === "projects" || pathToMatch === "projects"
+                                ? {
+                                    marginTop: "0.3rem",
+                                    color: theme.palette.primary.main,
+                                  }
+                                : path === pathToMatch
+                                ? { marginTop: "0.3rem", color: "white" }
+                                : {
+                                    marginTop: "0.3rem",
+                                    color: theme.palette.primary.main,
+                                  }
+                            }
+                          >
+                            {text}
+                          </StyledIconsLabels>
+                        ) : null}
                       </ListItemIcon>
+
                       {open && (
                         <ListItemText
                           alignItems="center"
                           display="flex"
                           width="100%"
                           justifyContent="space-between"
-                          sx={{
-                            color:
-                              subItems && text === sublistItem
-                                ? `${theme.palette.primary.main} !important`
-                                : "",
-                          }}
                           className={
-                            path === pathToMatch
-                              ? "active"
-                              : text === sublistItem
+                            path === "projects" || pathToMatch === "projects"
+                              ? ""
+                              : path === pathToMatch
                               ? "active"
                               : ""
                           }
@@ -310,7 +342,6 @@ export default function MiniDrawer() {
                               : ""
                           }
                           sx={{ display: "block" }}
-                          // style={`${pathToMatch[1]}/${pathToMatch[2]}` === "library/questions" ? { marginTop: "-10px" } : { marginTop: "0px" }}
                           onClick={() => {
                             navigate(subpath);
                           }}
@@ -366,19 +397,19 @@ export default function MiniDrawer() {
                                       subpath
                                         ? {
                                             marginTop: "0.1rem",
-                                            color: "#007B55",
+                                            color: "white",
                                             minWidth: 0,
                                             marginRight: "5px",
                                           }
                                         : {
                                             marginTop: "0.1rem",
-                                            color: "#919EAB",
+                                            color: theme.palette.primary.main,
                                             minWidth: 0,
                                             marginRight: "5px",
                                           }
                                     }
                                   >
-                                    {/* {subListLabels[index]} */}
+                                    {subText}
                                   </StyledIconsLabels>
                                 ) : null}
                               </span>
@@ -401,13 +432,13 @@ export default function MiniDrawer() {
                         </StyledListItem>
                       );
                     })}
-                </>
+                </Box>
               );
             })}
           </List>
         </Drawer>
         <Outlet />
       </Box>
-    </Box>
+    </>
   );
 }

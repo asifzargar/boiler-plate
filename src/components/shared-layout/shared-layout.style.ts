@@ -114,11 +114,11 @@ export const BulletPoint = styled("span")(({ theme }) => ({
   },
 }));
 
-export const StyledIconsLabels = styled(Typography)(({}) => ({
+export const StyledIconsLabels = styled(Typography)(({ theme }) => ({
   // fontFamily: "Inter",
   fontSize: "10px",
   fontStyle: "normal",
   fontWeight: 700,
   lineHeight: "140%",
-  color: "black",
+  color: theme.palette.primary.dark,
 }));
