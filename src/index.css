@@ -13,3 +13,10 @@ button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-contained
   word-spacing: 2px;
 }
 
+button.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.css-vfwt0o-MuiButtonBase-root-MuiButton-root {
+  border-radius: 0px !important;
+  padding-inline: 20px !important;
+  font-weight: 700;
+  /* text-transform: capitalize !important; */
+  word-spacing: 2px;
+}

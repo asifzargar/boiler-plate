@@ -4,6 +4,8 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import SharedLayout from "../components/shared-layout";
 import { ProtectedRouteProps } from "../types/route.type";
 import InventoryPage from "../pages/inventory";
+import AddInventory from "../components/add-inventory";
+import EditInventory from "../components/edit-inventory";
 
 const AppRouter = () => {
   const defaultProtectedRouteProps: Omit<ProtectedRouteProps, "outlet"> = {
@@ -22,8 +24,9 @@ const AppRouter = () => {
       >
         <Route index element={<TestPage />} />
         <Route path="inventory" element={<InventoryPage />} />
-        <Route path="inventory/new" element={<InventoryPage />} />
-        {/* <Route path="inventory/id/edit" element={<InventoryPage />} /> */}
+        <Route path="inventory/new" element={<AddInventory />} />
+        <Route path="inventory/:inventoryId" element={<Navigate to="edit" />} />
+        <Route path="inventory/:inventoryId/edit" element={<EditInventory />} />
         <Route path="projects" element={<Navigate to="project" />} />
         <Route path="projects/project" element={<div>projects</div>} />
         <Route path="projects/work-order" element={<div>work-order</div>} />
