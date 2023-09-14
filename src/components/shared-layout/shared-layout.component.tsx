@@ -102,6 +102,14 @@ export default function MiniDrawer() {
       text: "Inventory",
     },
     {
+      path: "suppliers",
+      text: "Suppliers",
+    },
+    {
+      path: "clients",
+      text: "Clients",
+    },
+    {
       path: "projects",
       text: "Projects",
       subItems: true,
@@ -122,8 +130,14 @@ export default function MiniDrawer() {
     },
   ];
 
-  const icons = [Dashboard, Inventory, Projects];
-  const iconsClicked = [ClickedDashboard, ClickedInventory, ClickedProjects];
+  const icons = [Dashboard, Inventory, "", "", Projects];
+  const iconsClicked = [
+    ClickedDashboard,
+    ClickedInventory,
+    "",
+    "",
+    ClickedProjects,
+  ];
 
   const toggleHandler = () => {
     setOpen((oldState) => !oldState);

@@ -27,6 +27,8 @@ const AppRouter = () => {
         <Route path="inventory/new" element={<AddInventory />} />
         <Route path="inventory/:inventoryId" element={<Navigate to="edit" />} />
         <Route path="inventory/:inventoryId/edit" element={<EditInventory />} />
+        <Route path="suppliers" element={<div>suppliers</div>} />
+        <Route path="clients" element={<div>clients</div>} />
         <Route path="projects" element={<Navigate to="project" />} />
         <Route path="projects/project" element={<div>projects</div>} />
         <Route path="projects/work-order" element={<div>work-order</div>} />
