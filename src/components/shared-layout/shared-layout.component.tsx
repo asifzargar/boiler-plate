@@ -5,6 +5,12 @@ import Projects from "../../assets/Projects.png";
 import ClickedDashboard from "../../assets/clickedDashboard.png";
 import ClickedInventory from "../../assets/clickedInventory.png";
 import ClickedProjects from "../../assets/clickedProjects.png";
+import ClickedClient from "../../assets/clickedClient.png";
+import ClickedSupplier from "../../assets/clickedSupplier.png";
+import Supplier from "../../assets/supplier.png";
+import Client from "../../assets/client.png";
+import SubPath from "../../assets/subpath.png";
+import ClickedSubPath from "../../assets/clickedSubPath.png";
 import MuiDrawer from "@mui/material/Drawer";
 import Box from "@mui/material/Box";
 import { styled, Theme, CSSObject } from "@mui/material/styles";
@@ -20,14 +26,9 @@ import LibraryOpenIconSelected from "../../assets/LibraryOpenIconSelected.svg";
 import {
   DrawerHeader,
   MobileBox,
-  // TabletBox,
-  // LogoText,
   StyledListItem,
   ListItemText,
   BurgerButton,
-  // StyledCollapse,
-  // SublistBtn,
-  // BulletPoint,
   StyledIconsLabels,
 } from "./shared-layout.style";
 import Logo from "../../assets/logo.png";
@@ -116,7 +117,7 @@ export default function MiniDrawer() {
       sublist: [
         {
           subpath: "projects/project",
-          subText: "Projects",
+          subText: "Project",
         },
         {
           subpath: "projects/work-order",
@@ -130,12 +131,12 @@ export default function MiniDrawer() {
     },
   ];
 
-  const icons = [Dashboard, Inventory, "", "", Projects];
+  const icons = [Dashboard, Inventory, Supplier, Client, Projects];
   const iconsClicked = [
     ClickedDashboard,
     ClickedInventory,
-    "",
-    "",
+    ClickedSupplier,
+    ClickedClient,
     ClickedProjects,
   ];
 
@@ -376,11 +377,11 @@ export default function MiniDrawer() {
                                 }}
                               >
                                 {`${pathToMatch[1]}/${pathToMatch[2]}` ===
-                                subpath
-                                  ? // <img src={TabOpenSubListSelected} />
-                                    ""
-                                  : // <img src={TabOpenSubListBullet} />
-                                    ""}
+                                subpath ? (
+                                  <img src={ClickedSubPath} />
+                                ) : (
+                                  <img src={SubPath} />
+                                )}
                               </ListItemIcon>
                             ) : (
                               <span
@@ -398,11 +399,11 @@ export default function MiniDrawer() {
                                   }}
                                 >
                                   {`${pathToMatch[1]}/${pathToMatch[2]}` ===
-                                  subpath
-                                    ? // <img src={subListIconsSelected[index]} />
-                                      ""
-                                    : // <img src={subListIcons[index]} />
-                                      ""}
+                                  subpath ? (
+                                    <img src={ClickedSubPath} />
+                                  ) : (
+                                    <img src={SubPath} />
+                                  )}
                                 </ListItemIcon>
                                 {!open ? (
                                   <StyledIconsLabels

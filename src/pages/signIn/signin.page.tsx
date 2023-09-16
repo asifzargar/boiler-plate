@@ -13,9 +13,9 @@ import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { useForm, Controller } from "react-hook-form";
 import Typography from "@mui/material/Typography";
-import logo from "../../../assets/Logo.svg";
+import logo from "../../assets/logo.svg";
 import { FormValues } from "@/types";
-import { Authenticaion } from "../../../services";
+import { Authenticaion } from "../../services";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { useNavigate } from "react-router-dom";
@@ -28,7 +28,7 @@ const LoginPage: React.FC = () => {
     "success"
   );
 
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
 
   let auth_service = new Authenticaion();
   const {
@@ -57,7 +57,7 @@ const LoginPage: React.FC = () => {
       if (response && response.status === 200) {
         openSnackbar("Login successful", "success");
         setTimeout(() => {
-          Navigate("/forgot-password");
+          navigate("/forgot-password");
         }, 1000);
       } else {
         openSnackbar("Login failed", "error");

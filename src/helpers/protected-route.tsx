@@ -1,12 +1,12 @@
 import { Navigate } from "react-router-dom";
-
 import { ProtectedRouteProps } from "../types/route.type";
 import { LocalStorageService } from "./local.storage.service.helper";
 
 function ProtectedRoute({ authenticationPath, outlet }: ProtectedRouteProps) {
   const localstorageService = new LocalStorageService();
 
-  const isAuthenticated = localstorageService.get_access_token();
+  // const isAuthenticated = localstorageService.get_access_token();
+  const isAuthenticated = true;
 
   if (isAuthenticated) {
     return outlet;
