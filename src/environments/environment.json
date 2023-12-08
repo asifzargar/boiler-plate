@@ -1,4 +1,4 @@
 {
-    "BASE_ADMIN_API_URL": "http://localhost:9003",
-    "ENV": "PROD"
-  }
+  "BASE_ADMIN_API_URL": "",
+  "ENV": "PROD"
+}
