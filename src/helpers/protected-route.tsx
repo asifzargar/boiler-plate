@@ -5,8 +5,8 @@ import { LocalStorageService } from "./local.storage.service.helper";
 function ProtectedRoute({ authenticationPath, outlet }: ProtectedRouteProps) {
   const localstorageService = new LocalStorageService();
 
-  // const isAuthenticated = localstorageService.get_access_token();
-  const isAuthenticated = true;
+  const isAuthenticated = localstorageService.get_access_token();
+  // const isAuthenticated = true;
 
   if (isAuthenticated) {
     return outlet;
