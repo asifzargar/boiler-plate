@@ -304,7 +304,7 @@ export default function JobModal(props: ModalProps) {
                         control={
                           <Radio
                             size="small"
-                            onChange={(e) => {
+                            onChange={(_e) => {
                               if (watch("quickApply") === false) {
                                 setValue("quickApply", true);
                               } else {
@@ -320,7 +320,7 @@ export default function JobModal(props: ModalProps) {
                         control={
                           <Radio
                             size="small"
-                            onChange={(e) => {
+                            onChange={(_e) => {
                               if (watch("extrenalApply") === false) {
                                 setValue("extrenalApply", true);
                               } else {

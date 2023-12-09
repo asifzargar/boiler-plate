@@ -81,13 +81,8 @@ const HomePage = () => {
         <Grid container spacing={2}>
           {jobList.map((row, i) => {
             return (
-              <Grid item xs={12} md={6}>
-                <JobCard
-                  row={row}
-                  key={i}
-                  setEditJob={setEditJob}
-                  getJobs={getJobs}
-                />
+              <Grid item xs={12} md={6} key={i}>
+                <JobCard row={row} setEditJob={setEditJob} getJobs={getJobs} />
               </Grid>
             );
           })}
