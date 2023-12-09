@@ -36,7 +36,7 @@ declare module "@mui/material/Typography" {
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#84754D",
+      main: "rgba(21, 151, 228, 1)",
       light: "#B5AC94",
       dark: "#423A26",
       50: "#B5AC94",
@@ -57,7 +57,7 @@ const theme = createTheme({
       100: "#006C9C",
     },
     success: {
-      main: "#36B37E",
+      main: "rgba(21, 151, 228, 1)",
       light: "#D8FBDE",
       dark: "#0A5554",
       50: "#86E8AB",

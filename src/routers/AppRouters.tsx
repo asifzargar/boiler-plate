@@ -1,10 +1,10 @@
-import TestPage from "../pages/TestFolder/TestPage";
+import HomePage from "../pages/Home/HomePage";
 import { Routes, Route } from "react-router-dom";
 
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<TestPage />} />
+      <Route path="/" element={<HomePage />} />
     </Routes>
   );
 };

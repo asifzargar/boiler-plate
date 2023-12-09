@@ -21,7 +21,7 @@ export const OuterCircle = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 8px solid ${theme.palette.primary.main};
+  border: 8px solid ${theme.palette.secondary.main};
   border-top: 8px solid #ffffff;
   border-radius: 50%;
   animation: ${spinClockwise} 2s linear infinite;
@@ -33,7 +33,7 @@ export const InnerCircle = styled.div`
   left: 16px;
   width: 68px;
   height: 68px;
-  border: 8px solid ${theme.palette.primary[50]};
+  border: 8px solid ${theme.palette.secondary[50]};
   border-bottom: 8px solid #ffffff;
   border-radius: 50%;
   animation: ${spinAnticlockwise} 1s linear infinite;

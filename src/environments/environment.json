@@ -1,4 +1,4 @@
 {
-  "BASE_ADMIN_API_URL": "",
+  "BASE_ADMIN_API_URL": "https://6572a53dd61ba6fcc0154a4a.mockapi.io",
   "ENV": "PROD"
 }

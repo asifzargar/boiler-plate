@@ -5,18 +5,18 @@ body {
   font-family: "Public Sans", sans-serif;
   /* background-color: #fffdf9; */
 }
-button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary.MuiButton-sizeMedium.MuiButton-containedSizeMedium.css-o7ik0b-MuiButtonBase-root-MuiButton-root {
-  border-radius: 0px !important;
+button.MuiButtonBase-root.MuiButton-root.MuiButton-contained {
+  border-radius: 8px !important;
   padding-inline: 20px !important;
   font-weight: 700;
-  /* text-transform: capitalize !important; */
+  text-transform: capitalize !important;
   word-spacing: 2px;
 }
 
-button.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary.MuiButton-sizeMedium.MuiButton-outlinedSizeMedium.css-vfwt0o-MuiButtonBase-root-MuiButton-root {
-  border-radius: 0px !important;
+button.MuiButtonBase-root.MuiButton-root.MuiButton-outlined {
+  border-radius: 8px !important;
   padding-inline: 20px !important;
   font-weight: 700;
-  /* text-transform: capitalize !important; */
+  text-transform: capitalize !important;
   word-spacing: 2px;
 }
