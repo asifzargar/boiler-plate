@@ -99,20 +99,28 @@ const JobCard = (props: JobCardProps) => {
           )}
         </CardContent>
         <CardActions>
-          <Button
-            variant={"contained"}
-            color="secondary"
-            sx={{ marginBottom: "15px" }}
-          >
-            Apply Now
-          </Button>
-          <Button
-            variant={"outlined"}
-            color="secondary"
-            sx={{ marginBottom: "15px" }}
-          >
-            External apply
-          </Button>
+          {row.quickApply ? (
+            <Button
+              variant={"contained"}
+              color="secondary"
+              sx={{ marginBottom: "15px" }}
+            >
+              Apply Now
+            </Button>
+          ) : (
+            ""
+          )}
+          {row.extrenalApply ? (
+            <Button
+              variant={"outlined"}
+              color="secondary"
+              sx={{ marginBottom: "15px" }}
+            >
+              External apply
+            </Button>
+          ) : (
+            ""
+          )}
         </CardActions>
       </div>
     </Card>
